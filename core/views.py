@@ -17,6 +17,19 @@ from .models import Post, Comment
 from .forms import CommentForm
 
 
+def about(request):
+    return render(request, 'core/aboutme.html', {})
+
+
+def search(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        posts = Post.objects.filter(title__contains=searched)
+        return render(request, 'core/search.html', {'searched':searched, 'posts': posts})
+    else:
+        return render(request, 'core/search.html', {})
+
+
 class HomeView(ListView):
     template_name = 'core/home.html'
     queryset = Post.objects.all()
