@@ -32,7 +32,8 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
 ALLOWED_HOSTS = [
-    'djangoblog-2.herokuapp.com'
+    'djangoblog-2.herokuapp.com',
+    '.localhost'
 ]
 
 
