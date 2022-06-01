@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+{% if searched %}
+    {% for post in posts %}
+        <a href="{% url 'core:post' post.id post.slug %}"> {{ post }} <br/>
+    {% endfor %}
+    {% else %}
+    No Search
+{% endif %}
+    </div>
+{% endblock %}
